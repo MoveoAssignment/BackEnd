@@ -16,7 +16,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/codeblocks", codeblockRoutes);
 
-const server = require("http").Server(app);
+const server = require("http").createServer(app);
 const io = socketio(server, {
   cors: { origin: "*", methods: ["GET", "POST"] },
 });
