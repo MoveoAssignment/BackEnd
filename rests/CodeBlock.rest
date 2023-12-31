@@ -1,0 +1,17 @@
+### 
+GET http://localhost:6969/codeblocks/
+
+###
+POST http://localhost:6969/codeblocks/
+Content-Type: application/json
+
+{
+    "title": "Object Creation",
+    "description": "Object is a collection of properties, and a property is an association between a key and a value.",
+    "task": "Create an object named person with name and age as keys and 'David' and 30 as values.",
+    "code": "let person = {name: 'David', age: 30};",
+    "image_url": "https://www.tabnine.com/academy/wp-content/uploads/2020/10/academy_3.png"
+}
+
+###
+DELETE http://localhost:6969/codeblocks/
