@@ -31,6 +31,6 @@ server.listen(SOCKET_PORT, () => {
   connectDB();
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Server Running on Port: http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server Running on Port: http://localhost:${PORT}`);
+});
