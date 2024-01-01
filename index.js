@@ -4,7 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const codeblockRoutes = require("./routes/Codeblock.routes");
 const connectDB = require("./config/mongo");
-const socketio = require("socket.io");
+const {Server} = require("socket.io");
 const { setSocket } = require("./utils/socketService");
 
 const app = express();
@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/codeblocks", codeblockRoutes);
 
 const server = require("http").createServer(app);
-const io = socketio(server, {
+const io = new Server(server, {
   cors: { origin: "*:*", methods: ["GET", "POST"] },
 });
 
@@ -28,9 +28,9 @@ handleClient(io);
 // using socket comunicatin for the chat.
 server.listen(SOCKET_PORT, () => {
   console.log(`Socket Server is running on port ${SOCKET_PORT}`);
-});
-
-app.listen(PORT, () => {
-  console.log(`Server Running on Port: http://localhost:${PORT}`);
   connectDB();
 });
+
+// app.listen(PORT, () => {
+//   console.log(`Server Running on Port: http://localhost:${PORT}`);
+// });
