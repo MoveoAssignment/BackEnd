@@ -18,8 +18,9 @@ app.use("/codeblocks", codeblockRoutes);
 
 const server = require("http").createServer(app);
 const io = socketio(server, {
-  cors: { origin: "*", methods: ["GET", "POST"] },
+  cors: { origin: "*:*", methods: ["GET", "POST"] },
 });
+
 setSocket(io);
 const { handleClient } = require("./utils/socket");
 handleClient(io);
